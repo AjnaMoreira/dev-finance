@@ -237,10 +237,6 @@ table tbody td {
     background-color: var(--card-ligth-color);
     padding: 1rem 2rem;
 }
-table tbody tr .remove-edit {
-    display: flex;
-    justify-content: space-around;
-}
 
 table tbody td img:hover {
     cursor: pointer;
