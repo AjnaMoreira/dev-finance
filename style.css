@@ -1,0 +1,393 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+:root {
+    --background: #f2f2f2;
+    --bg-color: #025159;
+    --bg-transparent: #4d4d4da1;
+    --card-color: #5abfa3;
+    --card-ligth-color: #d4e6d1;
+    --logo-color: #cad9c7;
+    --title-color: #01353b;
+    --text-dark-color: #012e33;
+    --text-color: #969cb2;
+    --ligth-color: #f5f5f5;
+    --red-color: #e92929;
+    --green-color: #49aa26;
+    --selection-color: #e1e6c8;
+    --selection-background-color: #013a40;
+    --font: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 93.75%; /*15px*/
+}
+
+body {
+    background: var(--background);
+    font-family: var(--font);
+}
+
+h2 {
+    margin: 3.2rem 0 0.8rem;
+    color: var(--title-color);
+    font-weight: normal;
+}
+
+/* HEADER =================== */
+header {
+    background: var(--bg-color);
+    height: 14.875rem;
+    padding: 1.8125rem 0 0;
+    text-align: center;
+}
+
+header .logo::selection {
+    background: var(--selection-background-color);
+}
+
+/* MAIN =================== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.container {
+    width: min(90vw, 800px);
+    margin: auto;
+}
+
+/* BALANCE =================== */
+#balance {
+    margin-top: -8rem;
+}
+
+#balance h2 {
+    margin-top: 0;
+    color: var(--card-ligth-color);
+}
+
+#balance h2::selection {
+    color: var(--selection-color);
+    background: var(--selection-background-color);
+}
+
+/* CARDS ===================*/
+.card {
+    background: var(--card-ligth-color);
+    padding: 1.5rem 2rem;
+    border-radius: 0.25rem;
+
+    margin-bottom: 2rem;
+
+    color: var(--text-dark-color);
+}
+
+.card h3 span::selection,
+.card h3 img::selection,
+.card p::selection {
+    color: var(--selection-color);
+    background-color: var(--selection-background-color);
+}
+
+.card h3 {
+    font-weight: normal;
+    font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card p {
+    font-size: 2rem;
+    line-height: 3rem;
+
+    margin-top: 1rem;
+}
+
+.card.total {
+    background-color: var(--card-color);
+}
+
+/*LINKS & BUTTONS =================== */
+a {
+    color: var(--green-color);
+    opacity: 1;
+}
+
+a:hover {
+    color: var(--green-color);
+    opacity: 0.7;
+}
+
+.button.save {
+    width: 100%;
+    height: 50px;
+    padding: 0;
+
+    border: none;
+    border-radius: 0.25rem;
+
+    color: var(--ligth-color);
+    background: var(--green-color);
+
+    cursor: pointer;
+
+    opacity: 0.7;
+}
+
+.button.save:hover {
+    opacity: 1;
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+.button.cancel {
+    color: var(--red-color);
+    border: solid 2px var(--red-color);
+    border-radius: 0.25rem;
+
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.7;
+}
+
+.button.cancel:hover {
+    opacity: 1;
+}
+
+.message .button.ok {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+
+    color: var(--green-color);
+    border: 2px solid var(--green-color);
+    border-radius: 0.25rem;
+}
+
+/*TABLE =================== */
+#transaction {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+#data-table {
+    width: 100%;
+    border-spacing: 0 0.5rem;
+}
+
+table thead th:first-child,
+table tbody td:first-child {
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+table thead th:last-child,
+table tbody td:last-child {
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+table th::selection,
+table td::selection,
+table td img::selection {
+    color: var(--selection-color);
+    background: var(--selection-background-color);
+}
+
+table th {
+    background-color: var(--card-ligth-color);
+
+    font-weight: normal;
+    text-align: left;
+    color: var(--text-color);
+
+    padding: 1rem 2rem;
+}
+
+table tbody tr {
+    opacity: 0.7;
+}
+
+table tbody tr:hover {
+    opacity: 1;
+}
+
+table tbody td {
+    background-color: var(--card-ligth-color);
+    padding: 1rem 2rem;
+}
+table tbody tr .remove-edit {
+    display: flex;
+    justify-content: space-around;
+}
+
+table tbody td img:hover {
+    cursor: pointer;
+}
+
+td.description,
+td.data {
+    color: var(--text-dark-color);
+}
+
+td.income {
+    color: var(--green-color);
+}
+
+td.expense {
+    color: var(--red-color);
+}
+
+/* MODAL =================== */
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--bg-transparent);
+
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    z-index: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: var(--card-ligth-color);
+    padding: 2.4rem;
+    width: 90%;
+    max-width: 500px;
+}
+
+/* FORM =================== */
+#form {
+    max-width: 500px;
+}
+
+#form h2 {
+    margin-top: 0;
+}
+
+#form form input {
+    border: none;
+    border-radius: 0.2rem;
+
+    padding: 0.8rem;
+    width: 100%;
+}
+
+.input-group {
+    margin-top: 0.8rem;
+}
+
+.input-group .help {
+    font-size: 0.8rem;
+    opacity: 0.4;
+}
+
+.input-group.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group.actions .button,
+.input-group.actions .button.save {
+    width: 48%;
+}
+
+/* ERROR =================== */
+.error-message {
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--bg-transparent);
+
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.error-message.active {
+    opacity: 1;
+    z-index: 2;
+    visibility: visible;
+}
+
+.message {
+    background: var(--red-color);
+    padding: 2.4rem;
+    width: 45%;
+    max-width: 250px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.message span {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* FOOTER =================== */
+footer {
+    text-align: center;
+    padding: 4rem 0 2rem;
+}
+
+footer .logo::selection {
+    background-color: var(--selection-color);
+}
+
+/*RESPONSIVE*/
+@media (min-width: 800px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    #balance {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+}
